@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - dokcer
+
+before_install:
+  - docker build -t nileshdang/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run nileshdang/docker-react npm run test -- --coverage
